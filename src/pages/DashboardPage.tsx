@@ -20,19 +20,19 @@ export function DashboardPage() {
         <p style={{ color: 'var(--muted)' }}>Loading…</p>
       ) : (
         <div className="grid">
-          <motionStat label="Total gyms" value={data.gyms.total} />
-          <motionStat label="Active gyms" value={data.gyms.active} />
-          <motionStat label="Members (all gyms)" value={data.members} />
-          <motionStat label="Gym owners" value={data.gymOwners} />
-          <motionStat label="Invoices (PAID)" value={data.invoices.PAID?.count ?? 0} />
-          <motionStat label="Invoices (OVERDUE)" value={data.invoices.OVERDUE?.count ?? 0} />
+          <StatCard label="Total gyms" value={data.gyms.total} />
+          <StatCard label="Active gyms" value={data.gyms.active} />
+          <StatCard label="Members (all gyms)" value={data.members} />
+          <StatCard label="Gym owners" value={data.gymOwners} />
+          <StatCard label="Invoices (PAID)" value={data.invoices.PAID?.count ?? 0} />
+          <StatCard label="Invoices (OVERDUE)" value={data.invoices.OVERDUE?.count ?? 0} />
         </div>
       )}
     </>
   );
 }
 
-function motionStat({ label, value }: { label: string; value: number }) {
+function StatCard({ label, value }: { label: string; value: number }) {
   return (
     <div className="card stat">
       <h3>{value}</h3>
